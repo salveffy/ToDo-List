@@ -64,23 +64,25 @@ const tasks = [
     divCol.setAttribute('data-task-id', _id);
 
     const divCard = document.createElement('div'); // контейнер карточки
-    divCard.classList.add('card', 'mx-auto', 'mb-4');
+    divCard.classList.add('card', 'mx-auto', 'mb-4','w-100');
 
     const divCardBody = document.createElement('div'); // тело карточки
     divCardBody.classList.add(
       'card-body',
       'd-flex',
       'flex-wrap',
-      'justify-content-end'
+      'justify-content-end',
+      'align-items-space-around',
     );
 
-    const titleCard = document.createElement('h5'); // title
+    const titleCard = document.createElement('span'); // title
     titleCard.textContent = title;
-    titleCard.classList.add('card-title');
+    titleCard.classList.add('card-title','w-100','h-0');
+    titleCard.style.fontWeight = 'bold';
 
     const textCard = document.createElement('p'); // текст задачи
     textCard.textContent = body;
-    textCard.classList.add('card-text');
+    textCard.classList.add('card-text','w-100');
 
     const deleteBtn = document.createElement('button'); //кнопка
     deleteBtn.textContent = 'Delete task';
@@ -108,6 +110,7 @@ const tasks = [
     const task = createNewTask(titleValue,bodyValue);
     const listItem = listItemTemplate(task);
     container.insertAdjacentElement('afterbegin', listItem);
+    form.reset();
 
   }
 
